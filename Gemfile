@@ -31,6 +31,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'faker'
 gem 'hamlit'
+gem 'devise'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
