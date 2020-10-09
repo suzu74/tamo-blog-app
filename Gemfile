@@ -28,12 +28,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'annotate'
 gem 'active_decorator'
+gem 'active_model_serializers'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'faker'
 gem 'hamlit'
 gem 'devise'
 gem 'aws-sdk-s3', require: false
+gem 'webpacker'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
