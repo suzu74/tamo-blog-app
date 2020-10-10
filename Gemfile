@@ -36,6 +36,7 @@ gem 'hamlit'
 gem 'devise'
 gem 'aws-sdk-s3', require: false
 gem 'webpacker'
+gem 'sidekiq'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
