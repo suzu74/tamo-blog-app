@@ -15,3 +15,27 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 require("./rails-ujs.js");
+import $ from 'jquery'
+import axios from 'modules/axios'
+import {
+  listenInactiveHeartEvent,
+  listenActiveHeartEvent
+} from 'modules/handle_heart'
+
+document.addEventListener('DOMContentLoaded', () => {
+  // debugger
+  const accountId = $('#profile-show').data().accountId
+  // const accountId = data.accountId
+  // debugger
+
+  axios.get(`/accounts/${accountId}/follows/20`)
+    .then((response) => {
+      const hasfollowed = response.data.hasfollowed
+      
+      if (hasfollowed) {
+        $('.unfollow_btn').removeClass('hidden')
+      } else {
+        $('.follow_btn').removeClass('hidden')
+      }
+    })
+})
