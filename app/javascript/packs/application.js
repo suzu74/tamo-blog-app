@@ -17,25 +17,39 @@
 require("./rails-ujs.js");
 import $ from 'jquery'
 import axios from 'modules/axios'
-import {
-  listenInactiveHeartEvent,
-  listenActiveHeartEvent
-} from 'modules/handle_heart'
 
 document.addEventListener('DOMContentLoaded', () => {
-  // debugger
   const accountId = $('#profile-show').data().accountId
-  // const accountId = data.accountId
-  // debugger
 
-  axios.get(`/accounts/${accountId}/follows/20`)
+  axios.get(`/accounts/${accountId}/follow`)
     .then((response) => {
+      const id = response.data.id
       const hasfollowed = response.data.hasfollowed
-      
+
       if (hasfollowed) {
         $('.unfollow_btn').removeClass('hidden')
       } else {
         $('.follow_btn').removeClass('hidden')
       }
+    })
+  
+    $('.follow_btn').on('click', () => {
+      axios.post(`/accounts/${accountId}/follow`)
+      .then((response) => {
+        if (response.data.status === 'ok') {
+          $('.follow_btn').addClass('hidden')
+          $('.unfollow_btn').removeClass('hidden')
+        }
+      })
+    })
+
+    $('.unfollow_btn').on('click', () => {
+      axios.post(`/accounts/${accountId}/unfollow`)
+      .then((response) => {
+        if (response.data.status === 'ok') {
+          $('.unfollow_btn').addClass('hidden')
+          $('.follow_btn').removeClass('hidden')
+        }
+      })
     })
 })

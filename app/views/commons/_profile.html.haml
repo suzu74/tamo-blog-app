@@ -10,10 +10,8 @@
           - if user == current_user
             = link_to 'Edit', edit_profile_path
           - else
-            - if current_user&.has_followed?(user)
-              %p.unfollow_btn.hidden unfollow
-            - else
-              %p.follow_btn.hidden follow
+            %p.unfollow_btn.hidden unfollow
+            %p.follow_btn.hidden follow
       .profilePage_user_introduction
         = user.profile&.introduction
 
